@@ -56,4 +56,7 @@ return {
       saturation = 1,
       brightness = 1,
    },
+   -- custome 调整窗口大小
+   initial_cols = 170,
+   initial_rows = 40,
 }

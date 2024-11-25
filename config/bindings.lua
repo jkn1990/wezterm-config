@@ -238,6 +238,12 @@ local mouse_bindings = {
       mods = 'CTRL',
       action = act.OpenLinkAtMouseCursor,
    },
+    -- 绑定右键为粘贴操作
+    {
+      event = {Down={streak=1, button="Right"}},
+      action = wezterm.action.PasteFrom("Clipboard"),
+      mods = "NONE",
+    },
 }
 
 return {
