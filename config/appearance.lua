@@ -2,6 +2,16 @@ local gpu_adapters = require('utils.gpu_adapter')
 local backdrops = require('utils.backdrops')
 local colors = require('colors.custom')
 
+-- custom start
+-- 最大化窗口
+local wezterm = require 'wezterm'
+local mux = wezterm.mux
+wezterm.on('gui-startup', function(cmd)
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
+-- custom end
+
 return {
    max_fps = 120,
    front_end = 'WebGpu',
@@ -56,7 +66,11 @@ return {
       saturation = 1,
       brightness = 1,
    },
-   -- custome 调整窗口大小
+   -- custom start
+   -- 调整窗口大小
    initial_cols = 170,
    initial_rows = 40,
+   -- 标题栏和边框
+   window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+   -- custom end
 }
