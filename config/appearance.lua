@@ -2,6 +2,22 @@ local gpu_adapters = require('utils.gpu-adapter')
 local backdrops = require('utils.backdrops')
 local colors = require('colors.custom')
 
+-- custom start
+-- 窗口居中
+-- wezterm.on("gui-startup", function(cmd)
+--   local screen            = wezterm.gui.screens().active
+--   local ratio             = 0.7
+--   local width, height     = screen.width * ratio, screen.height * ratio
+--   local tab, pane, window = wezterm.mux.spawn_window {
+--     position = {
+--       x = (screen.width - width) / 2,
+--       y = (screen.height - height) / 2,
+--       origin = 'ActiveScreen' }
+--   }
+--   -- window:gui_window():maximize()
+--   window:gui_window():set_inner_size(width, height)
+-- end)
+-- custom end
 return {
    max_fps = 120,
    front_end = 'WebGpu', ---@type 'WebGpu' | 'OpenGL' | 'Software'
@@ -64,6 +80,13 @@ return {
       brightness = 1,
    },
 
+   -- custom start
+   -- 调整窗口大小
+   initial_cols = 170,
+   initial_rows = 40,
+   -- 标题栏和边框
+   window_decorations = "INTEGRATED_BUTTONS|RESIZE",
+   -- custom end
    visual_bell = {
       fade_in_function = 'EaseIn',
       fade_in_duration_ms = 250,
